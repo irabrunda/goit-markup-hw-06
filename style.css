@@ -635,7 +635,7 @@ a {
     border:none;
     border-radius: 4px;
 
-    font-style: 700;
+    font-weight: 700;
     font-size: 16px;
     line-height: 1.875;
     letter-spacing: 0.06em;
@@ -863,4 +863,40 @@ a {
 .modal-close:focus .close-icon {
     fill: var(--accent-color);
 }
+
+/* Форма модальное окно */
+.modal-form .form-title {
+    position: absolute;
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: 0.03em;
+
+    color: var(--primary-text-color) ;
+}
+.form-field {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.form-input {
+    width: 100%;
+    margin: 4px 40px 10px 40px;
+    padding: 11px 0 11px 12px;
+    font: inherit;
+    border-radius: 4px;
+    border: 1px solid var(--primary-text-color) opacity(0.2);
+    
+    color: var(--primary-text-color);
+    background-image: url(./images/icons/sprite-2.svg#icon-person);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.submit-form {
+    position: relative;
+}
+/* Форма модальное окно конец*/
+
 /* модальное окно конец */
