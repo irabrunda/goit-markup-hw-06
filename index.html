@@ -46,32 +46,45 @@
                             <svg class="close-icon">
                                 <use href="./images/icons/sprite-2.svg#icon-close"></use>
                             </svg>
-                            <form class="modal-form">
-                                <h2 class="form-title">Оставьте свои данные, мы вам перезвоним</h2>
-                                <div class="form-field">
-                                    <label for="name">Имя</label>
-                                    <input class="form-input" type="text" name="name" id="name" />    
-                                </div>
-                                <div class="form-field">
-                                    <label for="tel">Телефон</label>
-                                    <input type="tel" name="tel" id="tel" />
-                                  </div>
-                            
-                                <div class="form-field">
-                                    <label for="mail">Почта</label>
-                                    <input type="email" name="mail" id="mail" />
-                                </div>
-                                <div class="form-field">
-                                    <label for="comment">Почта</label>
-                                    <textarea name="comment" id="comment" placeholder="Введите текст">
-                                        Комментарий
-                                    </textarea>
-                                </div>
-                                <label for="checkbox"></label>
-                                <input type="checkbox" value="Соглашаюсь с рассылкой и принимаю Условия договора" />
-                                <button class="submit-form" type="submit">Отправить</button>
-                            </form>
                         </button>
+                        <form class="modal-form">
+                            <b class="form-title">Оставьте свои данные, мы вам перезвоним</b>
+                            <div class="form-field">
+                                <label for="name" class="form-label">Имя</label>
+                                <input 
+                                    class="form-input"
+                                    type="text"
+                                    name="name"
+                                    id="name" />    
+                            </div>
+                            <div class="form-field">
+                                <label for="tel" class="form-label">Телефон</label>
+                                <input
+                                    class="form-input"
+                                    type="tel"
+                                    name="tel"
+                                    id="tel" />
+                            </div>                            
+                            <div class="form-field">
+                                <label for="mail" class="form-label">Почта</label>
+                                <input
+                                    class="form-input"
+                                    type="email"
+                                    name="mail"
+                                    id="mail" />
+                            </div>
+                            <div class="form-field">
+                                <label for="comment" class="form-label">Комментарий</label>
+                                <textarea
+                                    name="comment"
+                                    id="comment"
+                                    placeholder="Введите текст"
+                                ></textarea>
+                            </div>                                 
+                            <input type="checkbox" name="policy" id="policy" value="Соглашаюсь с рассылкой и принимаю Условия договора" />
+                            <label for="policy">Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a></label>
+                            <button class="submit-form" type="submit">Отправить</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -400,7 +413,7 @@
             <div class="subscribe">
                 <p>подпишитесь на рассылку</p>
                 <form action="#" method="post" class="footer-form">
-                    <div class="form-field">
+                    <div class="footer-form-field">
                         <label for="email">
                             <input type="e-mail" name="email" id="email" placeholder="E-mail" />
                         </label>
@@ -416,5 +429,22 @@
         </div>
     </footer>
     <script src="./js/modal.js"></script>
+<!-- 
+    <script>
+        (() => {
+          document
+            .querySelector('.modal-form')
+            .addEventListener('submit', e => {
+              e.preventDefault();
+
+              new FormData(e.currentTarget).forEach((value, name) =>
+                console.log(`${name}: ${value}`),
+              );
+
+              e.currentTarget.reset();
+            });  
+        })();
+    </script>
+-->
 </body>
 </html>
