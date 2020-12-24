@@ -822,63 +822,61 @@ a {
     display: flex;
     width: 528px;
     height: 581px;
+    padding: 40px;
     
     background-color: #fff;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .backdrop.backdrop.is-hidden .modal {
     transform: translate(-50%, -50%) scale(0.5);
 }
-.modal button {
+.modal-close {
     position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
+    top: 8px;
+    right: 8px;
     width: 30px;
     height: 30px;
-    margin: 8px 8px auto auto;
     padding: 0;
 
+    color: #000000;
     background-color: var(--primary-background-color);
     background-repeat: no-repeat;
-    border-radius: 50%;
     background-position: center;
     background-size: contain;
+
+    border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
-.modal-close .close-icon {
+.close-icon {
     position: absolute;
     display: flex;
     top: 21%;
     left: 21%;
     width: 18px;
     height: 18px;
-    fill: #000000;
+    fill: currentColor;
     border-radius: 50%;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-close:hover .close-icon,
-.modal-close:focus .close-icon {
-    fill: var(--accent-color);
+.modal-close:hover,
+.model-close:focus {
+    color: var(--accent-color);
 }
 
 /* Форма модальное окно */
-.modal .modal-form {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    flex-direction: column;
-}
-.modal-form .form-title {
+.form-div .form-title {
     display: block;
     text-align: center;
-    width: 100%;
-    margin-top: 40px;
     margin-bottom: 12px;
+
     font-weight: 700;
     font-size: 20px;
     line-height: 1.15;
@@ -886,44 +884,83 @@ a {
 
     color: var(--primary-text-color) ;
 }
-.form-field {
-    position: relative;
+.modal-form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    margin-left: 41px;
-    margin-right: 39px;
-    margin-top: 0;
-    top: 0;
-    left: 0;
-    border-radius: 4px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
 }
-.form-field:hover,
-.form-field:focus {
-    border: 1px solid var(--accent-color);
-}
-.form-field label {
-    margin-bottom: 4px;
+.form-field {
+    position: relative;
+    content: "";
 
-    font-size: 12px;
-    line-height: 1.16;
-    font-weight: 400;
-    
-    color: var(--secondary-text-color);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
 }
 .form-input {
     width: 100%;
-    margin: 4px 40px 10px 40px;
-    padding: 11px 0 11px 12px;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 11px 12px;
     
     font: inherit;
     border-radius: 4px;
     border: 1px solid var(--primary-text-color) opacity(0.2);
-    
-    background-size: contain;
-    background-repeat: no-repeat;
 }
+.form-field label {
+    margin-bottom: 4px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: var(--secondary-text-color);
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  border-color: var(--accent-color);
+  cursor: pointer;
+}
+.modal-form input::placeholder {
+  cursor: pointer;
+}
+.modal-form input:focus::placeholder {
+  cursor: pointer;
+}
+.modal-form input:focus ~ svg {
+  fill: var(--accent-color);
+  cursor: pointer;
+}
+.icon-form {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 12px;
+    display: block;
+
+    transform: translateY(-30%);
+  }
+  .icon-symbol {
+    width: 18px;
+    height: 18px;
+  }
+  .form-input:focus + .icon-form {
+    fill: var(--accent-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+.form-label-text {
+    resize: none;
+    width: 100%;
+    max-height: 120px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+
+    border-radius: 4px;    
+    border: 1px solid var(--primary-text-color) opacity(0.2);
+}
+
+/* 
 .form-field textarea{
     margin: 0;
     padding: 12px 16px;
@@ -935,9 +972,44 @@ a {
     opacity: 0.5;
     letter-spacing: 0.01em;
 }
+
+.modal-form input[type='checkbox'] {
+    width: 16px;
+    height: 15px;
+    color: var(--primary-text-color);
+}
+.icon-form {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+
+    width: 18px;
+    height: 18px;
+
+    color: var(--primary-text-color);
+    background-color: var(--primary-background-color);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-symbol {
+    fill: currentColor;
+}
+.form-field:hover .icon-form{
+    color: var(--accent-color);
+} */
+
 .submit-form {
     position: absolute;
     display: block;
+    top: 20px;
     padding: 10px 55px 10px 56px;
     margin: auto;
     
@@ -948,11 +1020,6 @@ a {
     border-radius: 4px;
     color: var(--light-color);
     background-color: var(--accent-color);
-}
-.modal-form input[type='checkbox'] {
-    width: 16px;
-    height: 15px;
-    color: var(--primary-text-color);
 }
 /* Форма модальное окно конец*/
 

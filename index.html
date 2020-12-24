@@ -47,15 +47,21 @@
                                 <use href="./images/icons/sprite-2.svg#icon-close"></use>
                             </svg>
                         </button>
-                        <form class="modal-form">
-                            <b class="form-title">Оставьте свои данные, мы вам перезвоним</b>
+                    <div class="form-div">
+                        <b class="form-title">Оставьте свои данные, мы вам перезвоним</b>
+                        <form class="modal-form">                            
                             <div class="form-field">
                                 <label for="name" class="form-label">Имя</label>
                                 <input 
                                     class="form-input"
                                     type="text"
                                     name="name"
-                                    id="name" />    
+                                    id="name" />
+                                <span class="icon-form">
+                                    <svg class="icon-symbol" width="12" height="12">
+                                        <use href="./images/icons/sprite-2.svg#icon-person"></use>
+                                    </svg>
+                                </span>    
                             </div>
                             <div class="form-field">
                                 <label for="tel" class="form-label">Телефон</label>
@@ -64,6 +70,11 @@
                                     type="tel"
                                     name="tel"
                                     id="tel" />
+                                <span class="icon-form">
+                                    <svg class="icon-symbol" width="13" height="13">
+                                        <use href="./images/icons/sprite-2.svg#icon-tel"></use>
+                                    </svg>
+                                </span>
                             </div>                            
                             <div class="form-field">
                                 <label for="mail" class="form-label">Почта</label>
@@ -72,19 +83,33 @@
                                     type="email"
                                     name="mail"
                                     id="mail" />
+                                <span class="icon-form">
+                                    <svg class="icon-symbol" width="15" height="12">
+                                        <use href="./images/icons/sprite-2.svg#icon-email"></use>
+                                    </svg>
+                                </span>
                             </div>
                             <div class="form-field">
                                 <label for="comment" class="form-label">Комментарий</label>
                                 <textarea
+                                    class="form-label-text"
                                     name="comment"
                                     id="comment"
+                                    rows="10"
                                     placeholder="Введите текст"
                                 ></textarea>
                             </div>                                 
-                            <input type="checkbox" name="policy" id="policy" value="Соглашаюсь с рассылкой и принимаю Условия договора" />
-                            <label for="policy">Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a></label>
+                            <div class="form-checkbox">
+                                <label for="policy" class="checkbox-label">
+                                    <input class="check-input visually-hidden" type="checkbox" name="policy" id="policy" value="policy" />
+                                    <span class="checkbox"></span>
+                                    <span class="agreement">Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a></span>
+                                </label>                                                   
+                            </div>
                             <button class="submit-form" type="submit">Отправить</button>
                         </form>
+                    </div>
+                        
                     </div>
                 </div>
             </div>
